@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #git_source="community-scripts/ProxmoxVE/main"
-git_source="mspearey/PromoxVE/refs/heads/feature/ghidra-server"
+git_source="mspearey/ProxmoxVE/refs/heads/feature/ghidra-server"
 
 ##source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
-source <(curl -fsSL https://raw.githubusercontent.com/${git_source}/misc/build.func)
+echo source <(curl -fsSL https://raw.githubusercontent.com/${git_source}/misc/build.func)
 
 # Copyright (c) 2021-2025 community-scripts ORG
 # Author: [YourUserName]

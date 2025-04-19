@@ -3,7 +3,7 @@
 git_source="mspearey/ProxmoxVE/refs/heads/feature/ghidra-server"
 
 ##source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
-echo source <(curl -fsSL https://raw.githubusercontent.com/${git_source}/misc/build.func)
+source <(curl -fsSL https://raw.githubusercontent.com/${git_source}/misc/build.func)
 
 # Copyright (c) 2021-2025 community-scripts ORG
 # Author: [YourUserName]

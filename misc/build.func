@@ -15,6 +15,7 @@ variables() {
 }
 
 git_source="${git_source:-community-scripts/ProxmoxVE/main}"
+echo "Source: ${git_source}"
 
 source <(curl -fsSL https://raw.githubusercontent.com/${git_source}/misc/api.func)
 

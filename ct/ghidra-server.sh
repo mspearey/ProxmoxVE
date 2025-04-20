@@ -21,7 +21,7 @@ var_ram="1024"
 # Amount of used RAM in MB (e.g. 2048 or 4096)
 var_disk="10"
 # Amount of used disk space in GB (e.g. 4 or 10)
-var_os="alpine"
+var_os="debian"
 # Default OS (e.g. debian, ubuntu, alpine)
 var_version="3.20"
 # Default OS version (e.g. 12 for debian, 24.04 for ubuntu, 3.20 for alpine)

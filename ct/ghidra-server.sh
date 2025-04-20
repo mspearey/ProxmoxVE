@@ -13,7 +13,7 @@ source <(curl -fsSL ${git_source}/misc/build.func)
 # App Default Values
 APP="Ghidra-Server"
 # Name of the app (e.g. Google, Adventurelog, Apache-Guacamole"
-var_tags="[TAGS]"
+var_tags="RE"
 # Tags for Proxmox VE, maximum 2 pcs., no spaces allowed, separated by a semicolon ; (e.g. database | adblock;dhcp)
 var_cpu="1"
 # Number of cores (1-X) (e.g. 4) - default are 2
@@ -28,7 +28,7 @@ var_version="12"
 var_unprivileged="1"
 # 1 = unprivileged container, 0 = privileged container
 
-VERBOSE="yes"
+#VERBOSE="yes"
 
 header_info "$APP"
 variables

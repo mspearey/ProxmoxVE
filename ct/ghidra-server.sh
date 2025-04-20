@@ -11,7 +11,7 @@ source <(curl -fsSL ${git_source}/misc/build.func)
 # Source: [SOURCE_URL]
 
 # App Default Values
-APP="Ghidra Server"
+APP="Ghidra-Server"
 # Name of the app (e.g. Google, Adventurelog, Apache-Guacamole"
 var_tags="[TAGS]"
 # Tags for Proxmox VE, maximum 2 pcs., no spaces allowed, separated by a semicolon ; (e.g. database | adblock;dhcp)

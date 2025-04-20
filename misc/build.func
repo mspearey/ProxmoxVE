@@ -19,6 +19,8 @@ echo "Source: ${git_source}"
 
 source <(curl -fsSL https://raw.githubusercontent.com/${git_source}/misc/api.func)
 
+echo "Ok"
+
 # This function sets various color variables using ANSI escape codes for formatting text in the terminal.
 color() {
   # Colors

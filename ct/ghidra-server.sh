@@ -28,6 +28,8 @@ var_version="12"
 var_unprivileged="1"
 # 1 = unprivileged container, 0 = privileged container
 
+VERBOSE="yes"
+
 header_info "$APP"
 variables
 color

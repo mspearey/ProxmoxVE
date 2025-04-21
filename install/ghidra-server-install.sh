@@ -14,15 +14,6 @@ setting_up_container
 network_check
 update_os
 
-# Installing Dependencies
-msg_info "Installing Dependencies"
-$STD apt-get install -y \
-#  openjdk-17-jre
-  # \
-  #[PACKAGE_2] \
-  #[PACKAGE_3]
-msg_ok "Installed Dependencies"
-
 msg_info "Setting up TemurinJDK"
 mkdir -p /etc/apt/keyrings
 curl -fsSL "https://packages.adoptium.net/artifactory/api/gpg/key/public" | tee /etc/apt/keyrings/adoptium.asc
@@ -49,19 +40,6 @@ msg_ok "Setup ${APPLICATION}"
 
 # Creating Service (if needed)
 msg_info "Creating Service"
-#cat <<EOF >/etc/systemd/system/${APPLICATION}.service
-#[Unit]
-#Description=${APPLICATION} Service
-#After=network.target
-
-#[Service]
-#ExecStart=[START_COMMAND]
-#Restart=always
-
-#[Install]
-#WantedBy=multi-user.target
-#EOF
-#systemctl enable -q --now ${APPLICATION}
 
 $GHIDRA_SVR="./opt/${APPLICATION}/server"
 $REPO_DIR=" /var/lib/${APPLICATION}/repositories"

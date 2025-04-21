@@ -17,11 +17,20 @@ update_os
 # Installing Dependencies
 msg_info "Installing Dependencies"
 $STD apt-get install -y \
-  openjdk-17-jre
+#  openjdk-17-jre
   # \
   #[PACKAGE_2] \
   #[PACKAGE_3]
 msg_ok "Installed Dependencies"
+
+msg_info "Setting up TemurinJDK"
+mkdir -p /etc/apt/keyrings
+curl -fsSL "https://packages.adoptium.net/artifactory/api/gpg/key/public" | tee /etc/apt/keyrings/adoptium.asc
+echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
+$STD apt-get update
+$STD apt-get install -y temurin-21-jdk
+sudo update-alternatives --set java /usr/lib/jvm/temurin-21-jdk-amd64/bin/java
+msg_ok "Installed TemurinJDK"
 
 # Setup App
 msg_info "Setup ${APPLICATION}"

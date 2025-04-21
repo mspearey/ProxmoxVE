@@ -51,7 +51,9 @@ function update_script() {
     if [[ "${RELEASE}" != "$(cat /opt/${APP}_version.txt)" ]] || [[ ! -f /opt/${APP}_version.txt ]]; then
         # Stopping Services
         msg_info "Stopping $APP"
-        systemctl stop [SERVICE_NAME]
+        #systemctl stop [SERVICE_NAME]
+        ./opt/${APPLICATION}/server/svrUninstall
+
         msg_ok "Stopped $APP"
 
         # Creating Backup
@@ -66,7 +68,8 @@ function update_script() {
 
         # Starting Services
         msg_info "Starting $APP"
-        systemctl start [SERVICE_NAME]
+        #systemctl start [SERVICE_NAME]
+        ./opt/${APPLICATION}/server/svrInstall
         msg_ok "Started $APP"
 
         # Cleaning up

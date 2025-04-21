@@ -6,9 +6,9 @@ git_source="https://raw.githubusercontent.com/mspearey/ProxmoxVE/refs/heads/feat
 source <(curl -fsSL ${git_source}/misc/build.func)
 
 # Copyright (c) 2021-2025 community-scripts ORG
-# Author: [YourUserName]
+# Author: mspearey
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
-# Source: [SOURCE_URL]
+# Source: https://ghidra-sre.org/
 
 # App Default Values
 APP="Ghidra-Server"

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Copyright (c) 2021-2025 community-scripts ORG
-# Author: [YourUserName]
+# Author: mspearey
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
-# Source: [SOURCE_URL]
+# Source: https://ghidra-sre.org/
 
 # Import Functions und Setup
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
@@ -25,7 +25,7 @@ msg_ok "Installed Dependencies"
 
 # Setup App
 msg_info "Setup ${APPLICATION}"
-//Ghidra_11.3.2_build
+#Ghidra_11.3.2_build
 TAG=$(curl -fsSL https://api.github.com/repos/NationalSecurityAgency/ghidra/releases/latest | grep "tag_name" | awk '{print substr($2, 2, length($2)-3) }')
 VERSION=${TAG:7:${#TAG}-13}
 RELEASE=$(curl -fsSL https://api.github.com/repos/NationalSecurityAgency/ghidra/releases/latest | grep "browser_download_url" | awk '{print substr($2, 2, length($2)-2) }')

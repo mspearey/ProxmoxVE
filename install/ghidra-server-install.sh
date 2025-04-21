@@ -41,15 +41,15 @@ msg_ok "Setup ${APPLICATION}"
 # Creating Service (if needed)
 msg_info "Creating Service"
 
-$GHIDRA_SVR="./opt/${APPLICATION}/server"
-$REPO_DIR=" /var/lib/${APPLICATION}/repositories"
+GHIDRA_SVR="./opt/${APPLICATION}/server"
+REPO_DIR="/var/lib/${APPLICATION}/repositories"
 
-sed -i "s/^ghidra.repositories.dir=.\/repositories/ghidra.repositories.dir=${REPO_DIR}/" $GHIDRA_SVR/server.conf
-sed -i "s/^wrapper.app.parameter.2=\${ghidra.repositories.dir}/wrapper.app.parameter.2=-u\nwrapper.app.parameter.3=\${ghidra.repositories.dir}/" $GHIDRA_SVR/server.conf
+$STD sed -i "s/^ghidra.repositories.dir=.\/repositories/ghidra.repositories.dir=${REPO_DIR}/" ${GHIDRA_SVR}/server.conf
+$STD sed -i "s/^wrapper.app.parameter.2=\${ghidra.repositories.dir}/wrapper.app.parameter.2=-u\nwrapper.app.parameter.3=\${ghidra.repositories.dir}/" ${GHIDRA_SVR}/server.conf
 
-$GHIDRA_SVR/svrInstall
+$STD ${GHIDRA_SVR}/svrInstall
 
-$GHIDRA_SVR/svrAdmin -add root
+$STD ${GHIDRA_SVR}/svrAdmin -add root
 
 msg_ok "Created Service"
 
@@ -58,7 +58,7 @@ customize
 
 # Cleanup
 msg_info "Cleaning up"
-rm -f ${TAG}.zip
+$STD rm -f ${TAG}.zip
 $STD apt-get -y autoremove
 $STD apt-get -y autoclean
 msg_ok "Cleaned"

@@ -3,7 +3,7 @@
 # Co-Author: MickLesk
 # License: MIT
 # https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
-
+git_source="https://raw.githubusercontent.com/mspearey/ProxmoxVE/refs/heads/feature/ghidra-server"
 git_source="${git_source:-https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main}"
 
 echo "Install Source: ${git_source}"

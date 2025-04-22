@@ -46,7 +46,7 @@ function update_script() {
         exit
     fi
     
-    GHIDRA_SVR="./opt/${APP}/server"
+    GHIDRA_SVR="/opt/${APP}/server"
     APP_REPO_DIR="/var/lib/${APP}/repositories"
 
     # Crawling the new version and checking whether an update is required

@@ -44,8 +44,8 @@ msg_info "Creating Service"
 GHIDRA_SVR="./opt/${APPLICATION}/server"
 REPO_DIR="/var/lib/${APPLICATION}/repositories"
 
-sed -i "s/^ghidra.repositories.dir=.\/repositories/ghidra.repositories.dir=${REPO_DIR}/" ${GHIDRA_SVR}/server.conf
-sed -i "s/^wrapper.app.parameter.2=\${ghidra.repositories.dir}/wrapper.app.parameter.2=-u\nwrapper.app.parameter.3=\${ghidra.repositories.dir}/" ${GHIDRA_SVR}/server.conf
+sed -i "s,^ghidra.repositories.dir=./repositories,ghidra.repositories.dir=${REPO_DIR}," ${GHIDRA_SVR}/server.conf
+sed -i "s,^wrapper.app.parameter.2=\${ghidra.repositories.dir},wrapper.app.parameter.2=-u\nwrapper.app.parameter.3=\${ghidra.repositories.dir}," ${GHIDRA_SVR}/server.conf
 
 $STD ${GHIDRA_SVR}/svrInstall
 

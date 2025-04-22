@@ -78,13 +78,13 @@ function update_script() {
         sed -i "s,^ghidra.repositories.dir=./repositories,ghidra.repositories.dir=${REPO_DIR}," ${GHIDRA_SVR}/server.conf
         sed -i "s,^wrapper.app.parameter.2=\${ghidra.repositories.dir},wrapper.app.parameter.2=-u\nwrapper.app.parameter.3=\${ghidra.repositories.dir}," ${GHIDRA_SVR}/server.conf
 
-        ${GHIDRA_SVR}/svrInstall
+        $STD ${GHIDRA_SVR}/svrInstall
 
         msg_ok "Started $APP"
 
         # Cleaning up
         msg_info "Cleaning Up"
-        rm -f ${TAG}.zip
+        $STD rm -f ${TAG}.zip
         msg_ok "Cleanup Completed"
 
         # Last Action

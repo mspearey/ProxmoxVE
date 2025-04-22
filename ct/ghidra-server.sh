@@ -45,6 +45,9 @@ function update_script() {
         msg_error "No ${APP} Installation Found!"
         exit
     fi
+    
+    GHIDRA_SVR="./opt/${APP}/server"
+    APP_REPO_DIR="/var/lib/${APP}/repositories"
 
     # Crawling the new version and checking whether an update is required
     TAG=$(curl -fsSL https://api.github.com/repos/NationalSecurityAgency/ghidra/releases/latest | grep "tag_name" | awk '{print substr($2, 2, length($2)-3) }')
@@ -54,7 +57,7 @@ function update_script() {
     if [[ "${VERSION}" != "$(cat /opt/${APP}_version.txt)" ]] || [[ ! -f /opt/${APP}_version.txt ]]; then
         # Stopping Services
         msg_info "Stopping $APP"
-        ./opt/${APP}/server/svrUninstall
+        $STD ${GHIDRA_SVR}/svrUninstall
 
         msg_ok "Stopped $APP"
 
@@ -72,10 +75,8 @@ function update_script() {
 
         # Starting Services
         msg_info "Starting $APP"
-        GHIDRA_SVR="./opt/${APP}/server"
-        REPO_DIR="/var/lib/${APP}/repositories"
         
-        sed -i "s,^ghidra.repositories.dir=./repositories,ghidra.repositories.dir=${REPO_DIR}," ${GHIDRA_SVR}/server.conf
+        sed -i "s,^ghidra.repositories.dir=./repositories,ghidra.repositories.dir=${APP_REPO_DIR}," ${GHIDRA_SVR}/server.conf
         sed -i "s,^wrapper.app.parameter.2=\${ghidra.repositories.dir},wrapper.app.parameter.2=-u\nwrapper.app.parameter.3=\${ghidra.repositories.dir}," ${GHIDRA_SVR}/server.conf
 
         $STD ${GHIDRA_SVR}/svrInstall

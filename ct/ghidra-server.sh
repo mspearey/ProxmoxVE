@@ -63,7 +63,7 @@ function update_script() {
 
         # Creating Backup
         msg_info "Creating Backup"
-        tar -czf "/opt/${APP}_backup_$(date +%F).tar.gz" "/opt/${APP}" $REPO_DIR
+        tar -czf "/opt/${APP}_backup_$(date +%F).tar.gz" "/opt/${APP}" "${APP_REPO_DIR}"
         msg_ok "Backup Created"
 
         # Execute Update
